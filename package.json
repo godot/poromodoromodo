@@ -1,0 +1,12 @@
+{
+    "name": "angularjs-desktop-example",
+    "version": "0.0.0",
+    "main": "index.html",
+    "window" : {
+        "frame" : false,
+        "toolbar": false,
+        "position" : "center"
+
+    }
+
+}
