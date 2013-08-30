@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-lg-8">
             <ul class="styled task-list" ui-sortable ng-model="tasks">
-                <li ng-repeat="task in tasks | filter:filter">
+                <li ng-repeat="task in tasks track by $index | filter:filter">
 
                     <span  ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
 
