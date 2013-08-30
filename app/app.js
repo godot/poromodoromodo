@@ -22,12 +22,10 @@ function AppCtrl($scope, $location) {
     };
     
     $scope.$on('task:start', function(event, task) {
-      console.log(task);
       var gui = require('nw.gui');
       var win = gui.Window.get();
       
       win.minimize();
-      console.log(window.location.pathname + '#/timer')
       gui.Window.open('file://' + window.location.pathname + '#/timer', {
         position: 'top',
         width: 390,
