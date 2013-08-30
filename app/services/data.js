@@ -25,15 +25,15 @@ app.factory('Data', function() {
     },
     
     find: function(model, id) {
-      this.
     },
     
     collection: function(model) {
       
     },
     
-    sync: function(collection) {
-      
+    sync: function(model, collection) {
+      localStorage.setItem(prefix + model);
+      return localStorage.getItem(prefix + model);
     }
   };
 });
