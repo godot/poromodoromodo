@@ -7,31 +7,31 @@ app.controller('TimerController', function ($scope, Data) {
     $scope.startTicker();
     $scope.task = Data.fetch('currentTask');
   };
-  
+
   $scope.startTicker = function() {
     $scope.tickerInterval = setInterval(function() {
       $scope.decreaseTime();
     }, 1000);
   };
-  
+
   $scope.setTimeString = function(seconds) {
     var minutes = Math.floor(seconds / 60);
     var seconds = seconds % 60;
     seconds = seconds <= 9 ? '0' + seconds : seconds;
     return minutes + ':' + seconds;
   };
-  
+
   $scope.decreaseTime = function() {
     $scope.timeLeft = $scope.timeLeft - 1;
     $scope.updateTimer();
   };
-  
+
   $scope.breakTimer = function() {
     alert('stopped');
-    alert($scope.tickerInterval)
+    alert($scope.tickerInterval);
     clearInterval($scope.tickerInterval);
   };
-  
+
   $scope.updateTimer = function() {
     $scope.timeString = $scope.setTimeString($scope.timeLeft);
     $scope.$apply();
