@@ -28,21 +28,15 @@ function AppCtrl($scope, $location, Data, TasksWindow, TimerWindow) {
     };
 
     $scope.$on('task:start', function(event, task) {
+        console.log('task:start');
         Data.sync('currentTask', task);
         TimerWindow.show();
     });
 
     $scope.$on('task:closed', function(event, task) {
-        TasksWindow.close();
+        console.log('task:closed');
+        TasksWindow.show();
+        TimerWindow.close();
+        console.log('wsaaaaat');
     });
-};
-
-function SetupController($scope) {
-    'use strict';
-    $scope.options = {
-        pomodoro: 25,
-        break   : 5,
-        long    : 5,
-        top     : 4
-    };
 };

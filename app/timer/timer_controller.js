@@ -28,7 +28,7 @@ app.controller('TimerController', function ($scope, Data) {
 
   $scope.breakTimer = function() {
     clearInterval($scope.tickerInterval);
-    $scope.$emit('task:closed');
+      $scope.$emit('task:closed');
   };
 
   $scope.updateTimer = function() {

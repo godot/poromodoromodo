@@ -8,21 +8,23 @@ app.factory('TasksWindow', function() {
         var tray = new gui.Tray({ title: 'Tray', icon: 'img/app-icon.png' });
         var menu = new gui.Menu();
         var menuItem = new gui.MenuItem( {
-            type: 'checkbox',
-            label: 'box1',
-            click: function() { win.show(); tray.remove(); }
+            label: 'show tasks',
+            click: function() { win.restore(); tray.remove(); }
         });
 
         menu.append( menuItem );
         tray.menu = menu;
-        console.log( tray );
     };
 
     var service = {
         minimize: function() {
-            win.minimize();
+            //win.minimize();
             win.hide();
             showTray();
+        },
+        show: function() {
+            console.log('tasks-window-show');
+            win.show();
         },
 
         close : function() {
@@ -34,18 +36,16 @@ app.factory('TasksWindow', function() {
 });
 
 
-app.factory('TimerWindow', function(TasksWindow) {
+app.factory('TimerWindow', function() {
     var gui = require('nw.gui');
-    var timer = null;
 
-    var showTimer = function() {
-        TasksWindow.minimize();
-        timer = gui.Window.open('file://' + window.location.pathname + '#/timer', {
+    var getTimerWindow = function() {
+        return gui.Window.get(window.open('file://' + window.location.pathname + '#/timer', {
             position: 'top',
             width: 390,
             height: 200,
-            toolbar: false,
-            frame: false,
+            toolbar: true,
+            frame: true,
             min_width: 390,
             min_height: 200,
             max_width: 390,
@@ -54,15 +54,15 @@ app.factory('TimerWindow', function(TasksWindow) {
             y: 100,
             resize: false,
             drag: true
-        });
+        }));
     };
 
     var service = {
         close : function() {
-            timer.close();
+            getTimerWindow().close();
         },
         show : function() {
-            showTimer();
+            getTimerWindow();
         }
     };
 
