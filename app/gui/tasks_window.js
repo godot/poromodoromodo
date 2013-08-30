@@ -2,14 +2,17 @@
 
 app.factory('TasksWindow', function() {
     var gui = require('nw.gui');
-    var win = gui.Window.get();
+
+    var getTasksWindow = function() {
+        return gui.Window.get();
+    };
 
     var showTray = function() {
         var tray = new gui.Tray({icon: 'img/app-icon-19x19.png'});
         var menu = new gui.Menu();
         var menuItem = new gui.MenuItem( {
             label: 'show tasks',
-            click: function() { win.restore(); tray.remove(); }
+            click: function() { getTasksWindow().restore(); tray.remove(); }
         });
 
         menu.append( menuItem );
@@ -18,17 +21,18 @@ app.factory('TasksWindow', function() {
 
     var service = {
         minimize: function() {
-            //win.minimize();
-            win.hide();
+            var window = getTasksWindow();
+            window.minimize();
+            window.hide();
             showTray();
         },
         show: function() {
             console.log('tasks-window-show');
-            win.show();
+            getTasksWindow().restore();
         },
 
         close : function() {
-            win.close();
+            getTasksWindow().close();
         }
     };
 
