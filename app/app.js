@@ -7,7 +7,7 @@ app.config( ['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({ redirectTo: '/tasks' });
 }]);
 
-function AppCtrl($scope, $location) {
+function AppCtrl($scope, $location, Data) {
     'use strict';
     $scope.close = function() { window.close(); };
     $scope.minimize = function() {
@@ -22,6 +22,7 @@ function AppCtrl($scope, $location) {
     };
     
     $scope.$on('task:start', function(event, task) {
+      Data.sync('currentTask', task);
       var gui = require('nw.gui');
       var win = gui.Window.get();
       
@@ -30,7 +31,7 @@ function AppCtrl($scope, $location) {
         position: 'top',
         width: 390,
         height: 200,
-        toolbar: false,
+        toolbar: true,
         frame: false,
         min_width: 390,
         min_height: 200,
@@ -38,8 +39,7 @@ function AppCtrl($scope, $location) {
         max_height: 200,
         x: 1000,
         y: 100,
-        resize: false,
-        drag: true
+        resize: false
       });
     });
 };

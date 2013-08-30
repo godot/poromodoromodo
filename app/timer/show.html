@@ -10,12 +10,11 @@
   <time>{{timeString}}</time>
 
   <ul class="pomodoro-buttons clearfix">
-    <li><a href="#" class="interruptions active">Interruptions</a></li>
-    <li><a href="#" class="break">Break</a></li>
+    <li><a class="interruptions active">Interruptions</a></li>
+    <li><a class="break" ng-click='breakTimer()'>Break</a></li>
   </ul>
 
   <ul class="pomodoro-tasks">
-    <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing... Phasellus condimentum purus vitae tortor adipiscing.
-sit amet ullamcorper odio accumsan.</span></li>
+    <li><span>{{task.title}}</span></li>
   </ul>
 </div>

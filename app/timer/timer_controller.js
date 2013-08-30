@@ -5,6 +5,7 @@ app.controller('TimerController', function ($scope, Data) {
     $scope.timeLeft = 60 * 25;
     $scope.timeString = $scope.setTimeString($scope.timeLeft);
     $scope.startTicker();
+    $scope.task = Data.fetch('currentTask');
   };
   
   $scope.startTicker = function() {
@@ -23,6 +24,12 @@ app.controller('TimerController', function ($scope, Data) {
   $scope.decreaseTime = function() {
     $scope.timeLeft = $scope.timeLeft - 1;
     $scope.updateTimer();
+  };
+  
+  $scope.breakTimer = function() {
+    alert('stopped');
+    alert($scope.tickerInterval)
+    clearInterval($scope.tickerInterval);
   };
   
   $scope.updateTimer = function() {
