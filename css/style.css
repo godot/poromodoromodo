@@ -81,6 +81,7 @@ header h1 {
 .backlog .search-form input[type=text] {
 	margin-left: 20px;
 	border-left: 1px solid rgba(255,255,255,0.2);
+  border-bottom: none;
 	padding-left: 20px;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
@@ -130,6 +131,7 @@ header h1 {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
+  border-bottom: 1px dashed #c1c1c1;
 }
 
 .backlog input[type=submit]:disabled {
