@@ -9,9 +9,15 @@ app.config( ['$routeProvider', function ($routeProvider) {
 
 function AppCtrl($scope, $location, Data) {
     'use strict';
-    $scope.close = function() { window.close(); };
+    $scope.close = function() {
+        $scope.save();
+        window.close();
+    };
     $scope.minimize = function() {
-        window = gui.Window.open('http://google.com');
+        $scope.save();
+        var gui = require('nw.gui');
+        var win = gui.Window.get();
+        win.minimize();
     };
 
     $scope.save = function() {
@@ -20,12 +26,12 @@ function AppCtrl($scope, $location, Data) {
     $scope.load = function() {
         $scope.$broadcast('tasks:load');
     };
-    
+
     $scope.$on('task:start', function(event, task) {
       Data.sync('currentTask', task);
       var gui = require('nw.gui');
       var win = gui.Window.get();
-      
+
       win.minimize();
       gui.Window.open('file://' + window.location.pathname + '#/timer', {
         position: 'top',
