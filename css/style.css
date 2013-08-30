@@ -31,7 +31,7 @@ li, a, button {
         min-height: 200px;
         max-width: 100%;
         position: relative;
-        background-color: #2a2a2a;
+        background: url('../img/bg-pattern.jpg');
         -webkit-box-shadow: 0 5px 38px 2px rgba(0,0,0,.7);
         -moz-box-shadow: 0 5px 38px 2px rgba(0,0,0,.7);
         box-shadow: 0 5px 38px 2px rgba(0,0,0,.7);
@@ -112,10 +112,11 @@ header h1 {
         position: relative;
 }
 
-.backlog .task-list li span.btn {
+.backlog .task-list li button.btn {
         position: absolute;
-        top: 5px;
-        right: 10px;
+        top: 13px;
+        right: 20px;
+        padding: 0 5px;
 }
 
 .backlog .new-task {
@@ -125,7 +126,7 @@ header h1 {
 .backlog input[type=text] {
         background: none;
         border: 0;
-        color: rgba(255,255,255,0.4);
+        color: #fff;
         outline-width: 0;
         font-weight: 300;
         -webkit-box-shadow: none;
@@ -184,18 +185,28 @@ header h1 {
 
 .backlog .pomodoro-task-length {
         position: absolute;
-        top: 10px;
+        top: 13px;
         right: 75px;
+        display: block;
+        width: 76px;
+        height: 19px;
+        background: url(../img/pomodoros.png) repeat-x 0 0;
 }
 
-.backlog .pomodoro-task-length:before {
-        content: ".";
-        display: inline-block;
-        font-size: 26px;
-        font-weight: 700;
-        position: relative;
-        left: -3px;
-        top: -3px;
+.backlog .pomodoro-task-length.pomodoros-1 {
+  width: 19px;
+}
+
+.backlog .pomodoro-task-length.pomodoros-2 {
+  width: 38px;
+}
+
+.backlog .pomodoro-task-length.pomodoros-3 {
+  width: 57px;
+}
+
+.backlog .pomodoro-task-length.pomodoros-4 {
+  width: 76px;
 }
 
 /** TIMER **/
@@ -206,13 +217,28 @@ header h1 {
         font-family: 'Lato', sans-serif;
         color: #fff;
         font-weight: 300;
-  width: 100%;
-  height: 100%;
+        width: 100%;
+        height: 100%;
         display: inline-block;
         min-height: 200px;
         position: relative;
         background-color: #2a2a2a;
         box-shadow: 0 5px 38px 2px rgba(0,0,0,.7);
+}
+
+.timer h1 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 20px;
+  text-indent: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.timer h1:before {
+  content: 'Task:';
+  padding-right: 5px;
 }
 
 
@@ -237,7 +263,7 @@ time {
         text-align: center;
 }
 
-.pomodoro-buttons li a {
+.pomodoro-buttons li button {
         display: inline-block;
         width: 140px;
         height: 30px;
@@ -246,16 +272,14 @@ time {
         color: rgba(255,255,255,0.2);
         font-weight: normal;
         text-align: center;
-        -webkit-border-radius: 15px;
-        -moz-border-radius: 15px;
         border-radius: 15px;
         border: solid 2px rgba(255,255,255,.2);
-        -webkit-transtion: all 0.15s;
-        -moz-transtion: all 0.15s;
         transition: all 0.15s;
+        cursor: pointer;
+        padding: 0;
 }
 
-.pomodoro-buttons li a:hover {
+.pomodoro-buttons li button:hover {
         text-decoration: none;
         background: rgba(255,255,255,.8);
         color: rgba(51,51,51,.8);

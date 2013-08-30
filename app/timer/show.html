@@ -1,13 +1,13 @@
 <div class="timer container" ng-controller='TimerController' ng-init='init()'>
   <header>
-    <h1>  <span>{{task.title}}</span></h1>
+    <h1>{{task.title}}</h1>
   </header>
 
   <time>{{timeString}}</time>
 
   <ul class="pomodoro-buttons clearfix">
-    <li><a class="interruptions active">Interruptions</a></li>
-    <li><a class="break" ng-click='breakTimer()'>Break</a></li>
+    <li><button class="interruptions active">Interruptions</button></li>
+    <li><button class="break" ng-click='breakTimer()'>Break</button></li>
   </ul>
 
 

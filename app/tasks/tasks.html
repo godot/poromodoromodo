@@ -19,8 +19,8 @@
             <span ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
             <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)" class="form">
 
-            <span class="pomodoro-task-length">{{task.length}}</span>
-            <span class="btn btn-danger" ng-click="start(task)">GO!</span>
+            <span class="pomodoro-task-length pomodoros-{{task.length}}"></span>
+            <button class="btn btn-success btn-xs" ng-click="start(task)">Start!</button>
         </li>
     </ul>
 
