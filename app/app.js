@@ -20,6 +20,23 @@ function AppCtrl($scope, $location, Data) {
         var gui = require('nw.gui');
         var win = gui.Window.get();
         win.minimize();
+        win.hide();
+
+        // Create a tray icon
+        var tray = new gui.Tray({ title: 'Tray', icon: 'img/app-icon.png' });
+
+        // Give it a menu
+        var menu = new gui.Menu();
+        menu.append(new gui.MenuItem(
+            {
+                type: 'checkbox',
+                label: 'box1',
+                click: function() {
+                    tray.remove();
+                    win.show();
+                }}
+        ));
+        tray.menu = menu;
     };
 
     $scope.save = function() {
@@ -46,7 +63,8 @@ function AppCtrl($scope, $location, Data) {
         max_height: 200,
         x: 1000,
         y: 100,
-        resize: false
+        resize: false,
+        drag: true
       });
     });
 

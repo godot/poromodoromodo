@@ -20,12 +20,10 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
     };
 
     $scope.$on('tasks:save', function() {
-        console.log('save');
         Data.save('Tasks', $scope.tasks);
     });
 
     $scope.$on('tasks:load', function() {
-        console.log('load');
         $scope.tasks = Data.fetch('Tasks');
     });
 
