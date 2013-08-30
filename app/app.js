@@ -2,11 +2,12 @@ var app = angular.module('app', ['ui.sortable']);
 
 app.config( ['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/tasks', { templateUrl: 'app/tasks/tasks.html', controller: 'TasksController' });
+    $routeProvider.when('/timer', { templateUrl: 'app/timer/show.html', controller: 'TimerController' });
     $routeProvider.when('/setup', { templateUrl: 'app/settings/settings.html', controller: 'SetupController' });
     $routeProvider.otherwise({ redirectTo: '/tasks' });
 }]);
 
-function AppCtrl($scope) {
+function AppCtrl($scope, $location) {
     'use strict';
     $scope.close = function() { window.close(); };
     $scope.minimize = function() {
@@ -26,7 +27,14 @@ function AppCtrl($scope) {
       var win = gui.Window.get();
       
       win.minimize();
-      gui.Window.open('app/timer/timer.html');
+      console.log(window.location.pathname + '#/timer')
+      gui.Window.open('file://' + window.location.pathname + '#/timer', {
+        position: 'top',
+        width: 200,
+        height: 150,
+        toolbar: false,
+        frame: false
+      });
     });
 };
 
