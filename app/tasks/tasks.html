@@ -9,19 +9,16 @@
 
     <form class="navbar-form " role="search">
         <div class="form-group search-form">
-            <input type="text" class="form-control" placeholder="Search" ng-model="filter">
+            <input type="text" class="form-control" placeholder="Search" ng-model="filter.title">
         </div>
     </form>
 
     <ul class="styled task-list" ui-sortable ng-model="tasks">
-        <li ng-repeat="task in tasks track by $index | filter:filter">
-
-            <span  ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
-
+        <li ng-repeat="task in tasks track by $index | filter">
+            <span ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
             <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)" class="form">
 
             <span class="pomodoro-task-length">{{task.length}}</span>
-
             <span class="btn btn-danger" ng-click="start(task)">GO!</span>
         </li>
     </ul>

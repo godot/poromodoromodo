@@ -5,8 +5,8 @@
   "window": {
     "title": "Pomodoromorodoro",
     "icon": "link.png",
-    "toolbar": false,
-    "frame": false,
+    "toolbar": true,
+    "frame": true,
     "width": 900,
     "height": 800,
     "position": "center",
