@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('TasksController', function ($scope, Data, TasksManager) {
-    $scope.tasks = Data.fetch('Tasks') || [];
+    $scope.tasks = Data.fetch('Tasks');
 
     $scope.task = {
         length : 1,

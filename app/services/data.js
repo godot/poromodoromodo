@@ -10,7 +10,7 @@ app.factory('Data', function() {
     },
 
     fetch: function(model) {
-      return JSON.parse(localStorage.getItem(this.prefix + model));
+      return JSON.parse(localStorage.getItem(this.prefix + model)) || [];
     }
   };
 });
