@@ -22,6 +22,16 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
         $scope.tasks = Data.fetch('Tasks');
     });
 
+    $scope.edit = function(task) {
+        task.edited = !task.edited;
+    };
+
+    $scope.finish_edit = function(task,$event) {
+        if ($event.keyCode == 13) {
+            task.edited = false;
+        }
+    };
+
     $scope.start = function(task) {
       $scope.$emit('task:start', task);
     };

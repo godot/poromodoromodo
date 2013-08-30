@@ -17,7 +17,13 @@
         <div class="col-lg-8">
             <ul class="styled task-list" ui-sortable ng-model="tasks">
                 <li ng-repeat="task in tasks | filter:filter">
-                    {{task.title}} [{{task.length}}]
+
+                    <span  ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
+
+                    <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)"/>
+
+                    [{{task.length}}]
+
                     <span class="btn btn-danger" ng-click="start(task)">GO!</span>
                 </li>
             </ul>
