@@ -12,6 +12,13 @@ function AppCtrl($scope) {
     $scope.minimize = function() {
         window = gui.Window.open('http://google.com');
     };
+
+    $scope.save = function() {
+        $scope.$broadcast('tasks:save');
+    };
+    $scope.load = function() {
+        $scope.$broadcast('tasks:load');
+    };
 }
 
 function SetupController($scope) {
