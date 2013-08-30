@@ -1,0 +1,118 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+/** TIMER **/
+
+.timer {
+	font-size: 14px;
+	line-height: 24px;
+	font-family: 'Lato', sans-serif;
+	color: #fff;
+	font-weight: 300;
+	display: inline-block;
+	width: 390px; 
+	min-height: 200px; 
+	position: relative;
+	-webkit-border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	border-radius: 6px; 
+	background-color: #2a2a2a; 
+	-webkit-box-shadow: 0 5px 38px 2px rgba(0,0,0,.7); 
+	-moz-box-shadow: 0 5px 38px 2px rgba(0,0,0,.7); 
+	box-shadow: 0 5px 38px 2px rgba(0,0,0,.7);
+}
+
+.top-buttons {
+	position: absolute;
+	top:10px;
+	right: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.top-buttons li {
+	text-indent: -999em;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-left: 2px;
+	background: url("../img/top-buttons.png") 0 0;
+	opacity: 0.3;
+	-webkit-transtion: all 0.15s;
+	-moz-transtion: all 0.15s;
+	transition: all 0.15s;
+}
+
+.top-buttons li.close-timer {
+	background-position: 0 20px;
+}
+
+.top-buttons li:hover {
+	opacity: 1;
+}
+
+header h1 {
+	text-align: center;
+	font-size: 13px;
+	line-height: 39px;
+	margin: 0;
+	font-weight: 300;
+	color: rgba(255,255,255,.51);
+}
+
+time {
+	font-size: 60px;
+	line-height: 60px;
+	display: block;
+	text-align: center;
+	margin: 0 0 21px;
+	text-shadow: 0 0 30px rgba(245,246,246,.3);
+}
+
+.pomodoro-buttons {
+	margin: 0 25px 12px;
+	padding: 0;
+	list-style: none;
+}
+
+.pomodoro-buttons li {
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+.pomodoro-buttons li a {
+	display: inline-block;
+	width: 140px; 
+	height: 30px;
+	line-height: 26px;
+	background: rgba(255,255,255,0);
+	color: rgba(255,255,255,0.2);
+	font-weight: normal;	
+	text-align: center;
+	-webkit-border-radius: 15px; 
+	-moz-border-radius: 15px; 
+	border-radius: 15px; 
+	border: solid 2px rgba(255,255,255,.2);
+	-webkit-transtion: all 0.15s;
+	-moz-transtion: all 0.15s;
+	transition: all 0.15s;
+}
+
+.pomodoro-buttons li a:hover {
+	text-decoration: none;
+	background: rgba(255,255,255,.8);
+	color: rgba(51,51,51,.8);
+}
+
+.pomodoro-tasks {
+	padding: 0 0 0 49px;
+}
+
+
+.pomodoro-tasks li span{
+	max-height: 24px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	float: right;
+}
