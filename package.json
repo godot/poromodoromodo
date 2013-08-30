@@ -6,7 +6,7 @@
     "title": "node-webkit demo",
     "icon": "link.png",
     "toolbar": true,
-    "frame": false,
+    "frame": true,
     "width": 900,
     "height": 800,
     "position": "center",
