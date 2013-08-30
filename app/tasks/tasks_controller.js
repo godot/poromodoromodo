@@ -1,6 +1,7 @@
 'use strict';
 
 app.controller('TasksController', function ($scope, Data, TasksManager) {
+    $scope.tasks = Data.fetch('Tasks') || [];
     $scope.task = { length : 1 };
     $scope.add = function() {
         $scope.tasks.push( angular.copy($scope.task) );
@@ -15,6 +16,9 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
         console.log('load');
         $scope.tasks = Data.fetch('Tasks');
     });
-
-    $scope.tasks = Data.fetch('Tasks') || [];
+    
+    $scope.start = function(task) {
+      console.log('task: ', task)
+      $scope.$emit('task:start', task)
+    }
 });

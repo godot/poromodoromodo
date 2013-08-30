@@ -11,7 +11,7 @@
             <ul class="styled" ui-sortable ng-model="tasks">
                 <li ng-repeat="task in tasks | filter:filter">
                     {{task.title}} [{{task.length}}]
-                    <span class="btn btn-danger" ng-click="start()">GO!</span>
+                    <span class="btn btn-danger" ng-click="start(task)">GO!</span>
                 </li>
             </ul>
         </div>
