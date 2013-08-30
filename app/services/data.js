@@ -32,8 +32,12 @@ app.factory('Data', function() {
     },
     
     sync: function(model, collection) {
-      localStorage.setItem(prefix + model);
-      return localStorage.getItem(prefix + model);
+      localStorage.setItem(prefix + model, JSON.stringify(collection));
+      return JSON.parse(localStorage.getItem(prefix + model));
+    },
+    
+    fetch: function(model) {
+      return JSON.parse(localStorage.getItem(prefix + model));
     }
   };
 });
