@@ -8,21 +8,27 @@
         </ul>
     </header>
 
-    <form class="navbar-form " role="search">
-        <div class="form-group search-form">
-            <input type="text" class="form-control" placeholder="Search" ng-model="filter.title">
-        </div>
-    </form>
+    
+    
+    <section class='tasks'>
+        <h2>
+          Tasks
+          <form role="search">
+              <div class="search-form">
+                  <input type="text" placeholder="Search..." ng-model="filter.title">
+              </div>
+          </form>
+        </h2>
+        <ul class="styled task-list" ui-sortable ng-model="tasks">
+            <li ng-repeat="task in tasks track by $index | filter">
+                <span ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
+                <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)" class="form">
 
-    <ul class="styled task-list" ui-sortable ng-model="tasks">
-        <li ng-repeat="task in tasks track by $index | filter">
-            <span ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
-            <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)" class="form">
-
-            <span class="pomodoro-task-length pomodoros-{{task.length}}"></span>
-            <button class="btn btn-success btn-xs" ng-click="start(task)">Start!</button>
-        </li>
-    </ul>
+                <span class="pomodoro-task-length pomodoros-{{task.length}}"></span>
+                <button class="btn btn-success btn-xs" ng-click="start(task)">Start!</button>
+            </li>
+        </ul>
+    </section>
 
     <form ng-submit="add(task)" class="css-form new-task" novalidate name="form">
         <input class="form-control" type="text" ng-model="task.title" placeholder="task title..." required/>
