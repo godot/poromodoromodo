@@ -9,7 +9,14 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
     };
 
     $scope.add = function() {
-        $scope.tasks.push( {title: $scope.task.title, length: $scope.task.length} );
+        var task = {
+            title: $scope.task.title,
+            length: $scope.task.length,
+            id: (new Date().getTime())
+        };
+
+        $scope.tasks.push(task);
+        $scope.task = null;
     };
 
     $scope.$on('tasks:save', function() {
