@@ -1,4 +1,4 @@
-<div class="timer">
+<div class="timer" ng-controller='TimerController' ng-init='init()'>
   <header>
     <h1>Pomodoro Timer</h1>
     <ul class="top-buttons">
@@ -7,7 +7,7 @@
     </ul>
   </header>
 
-  <time>21:45</time>
+  <time>{{timeString}}</time>
 
   <ul class="pomodoro-buttons clearfix">
     <li><a href="#" class="interruptions active">Interruptions</a></li>

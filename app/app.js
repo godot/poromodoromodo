@@ -36,7 +36,10 @@ function AppCtrl($scope, $location) {
         min_height: 200,
         max_width: 390,
         max_height: 200,
-        resize: false
+        x: 1000,
+        y: 100,
+        resize: false,
+        drag: true
       });
     });
 };
