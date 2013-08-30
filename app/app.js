@@ -1,20 +1,16 @@
 var app = angular.module('app', []);
 
 app.config( ['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/tasks', { templateUrl: 'tasks.html', controller: 'TasksController' });
-    $routeProvider.when('/setup', { templateUrl: 'setup.html', controller: 'SetupController' });
+    $routeProvider.when('/tasks', { templateUrl: 'app/tasks/tasks.html', controller: 'TasksController' });
+    $routeProvider.when('/setup', { templateUrl: 'app/settings/settings.html', controller: 'SetupController' });
     $routeProvider.otherwise({ redirectTo: '/tasks' });
 }]);
 
 function AppCtrl($scope) {
-  'use strict';
-    $scope.name = 'hello world from ng-web-kit-node-js';
-    $scope.data = localStorage.x;
-
-
-    $scope.store = function() {
-      console.log($scope.key);
-      localStorage.x = $scope.key;
+    'use strict';
+    $scope.close = function() { window.close(); };
+    $scope.minimize = function() {
+        window = gui.Window.open('http://google.com');
     };
 }
 

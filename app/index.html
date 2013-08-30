@@ -3,17 +3,18 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8" />
+        <base href="../">
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" media="screen">
         <title>Pomodorogo</title>
     </head>
-    <body>
-        <ng-include src="'navbar.html'"></ng-include>
+    <body ng-controller="AppCtrl">
+        <ng-include src="'app/navbar/navbar.html'"></ng-include>
 
         <ng-view></ng-view>
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-        <script src="jquery.min.js"></script>
-        <script src="bootstrap.min.js"></script>
-        <script src="app.js"></script>
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="app/app.js"></script>
     </body>
 </html>

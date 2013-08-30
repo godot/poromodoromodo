@@ -1,12 +1,18 @@
 {
-    "name": "angularjs-desktop-example",
-    "version": "0.0.0",
-    "main": "index.html",
-    "window" : {
-        "frame" : false,
-        "toolbar": false,
-        "position" : "center"
-
-    }
-
+  "name": "angularjs-desktop-example",
+  "version": "0.0.0",
+  "main": "app/index.html",
+  "window": {
+    "title": "node-webkit demo",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": false,
+    "width": 900,
+    "height": 800,
+    "position": "center",
+    "min_width": 400,
+    "min_height": 200,
+    "max_width": 800,
+    "max_height": 600
+  }
 }
