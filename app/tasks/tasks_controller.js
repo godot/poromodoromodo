@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('TasksController', function ($scope, Data, TasksWindow) {
+app.controller('TasksController', function ($scope, Data) {
     $scope.tasks = Data.fetch('Tasks');
 
     $scope.task = {
@@ -39,6 +39,5 @@ app.controller('TasksController', function ($scope, Data, TasksWindow) {
 
     $scope.start = function(task) {
         $scope.$emit('task:start', task);
-        TasksWindow.minimize();
     };
 });
