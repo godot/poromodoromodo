@@ -14,17 +14,6 @@ function AppCtrl($scope) {
     };
 }
 
-function TasksController($scope) {
-  'use strict';
-    $scope.tasks = [];
-    $scope.task = { length : 1 };
-
-    $scope.add = function() {
-        $scope.tasks.push( angular.copy($scope.task));
-    };
-}
-
-
 function SetupController($scope) {
   'use strict';
     $scope.options = {

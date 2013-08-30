@@ -1,1 +1,3 @@
 /lib/jquery-ui-1.10.3/*
+.DS_Store
+*.log
