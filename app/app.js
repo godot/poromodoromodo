@@ -7,7 +7,7 @@ app.config( ['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({ redirectTo: '/tasks' });
 }]);
 
-function AppCtrl($scope, $location, Data) {
+function AppCtrl($scope, $location, Data, TasksWindow, TimerWindow) {
     'use strict';
     var gui = require('nw.gui');
 
@@ -16,66 +16,29 @@ function AppCtrl($scope, $location, Data) {
         window.close();
     };
     $scope.minimize = function() {
-        $scope.save();
-        var gui = require('nw.gui');
-        var win = gui.Window.get();
-        win.minimize();
-        win.hide();
-
-        // Create a tray icon
-        var tray = new gui.Tray({ title: 'Tray', icon: 'img/app-icon.png' });
-
-        // Give it a menu
-        var menu = new gui.Menu();
-        menu.append(new gui.MenuItem(
-            {
-                type: 'checkbox',
-                label: 'box1',
-                click: function() {
-                    tray.remove();
-                    win.show();
-                }}
-        ));
-        tray.menu = menu;
+        TasksWindow.minimize();
     };
 
     $scope.save = function() {
         $scope.$broadcast('tasks:save');
     };
+
     $scope.load = function() {
         $scope.$broadcast('tasks:load');
     };
 
     $scope.$on('task:start', function(event, task) {
-      Data.sync('currentTask', task);
-      var win = gui.Window.get();
-
-      win.minimize();
-      gui.Window.open('file://' + window.location.pathname + '#/timer', {
-        position: 'top',
-        width: 390,
-        height: 200,
-        toolbar: false,
-        frame: false,
-        min_width: 390,
-        min_height: 200,
-        max_width: 390,
-        max_height: 200,
-        x: 1000,
-        y: 100,
-        resize: false,
-        drag: true
-      });
+        Data.sync('currentTask', task);
+        TimerWindow.show();
     });
 
     $scope.$on('task:closed', function(event, task) {
-      var win = gui.Window.get();
-      win.close();
+        TasksWindow.close();
     });
 };
 
 function SetupController($scope) {
-  'use strict';
+    'use strict';
     $scope.options = {
         pomodoro: 25,
         break   : 5,
