@@ -30,8 +30,8 @@ function AppCtrl($scope, $location) {
       console.log(window.location.pathname + '#/timer')
       gui.Window.open('file://' + window.location.pathname + '#/timer', {
         position: 'top',
-        width: 200,
-        height: 150,
+        width: 390,
+        height: 200,
         toolbar: false,
         frame: false
       });
