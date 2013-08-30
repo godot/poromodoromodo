@@ -33,7 +33,12 @@ function AppCtrl($scope, $location) {
         width: 390,
         height: 200,
         toolbar: false,
-        frame: false
+        frame: false,
+        min_width: 390,
+        min_height: 200,
+        max_width: 390,
+        max_height: 200,
+        resize: false
       });
     });
 };
