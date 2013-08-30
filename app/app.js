@@ -12,7 +12,23 @@ function AppCtrl($scope) {
     $scope.minimize = function() {
         window = gui.Window.open('http://google.com');
     };
-}
+
+    $scope.save = function() {
+        $scope.$broadcast('tasks:save');
+    };
+    $scope.load = function() {
+        $scope.$broadcast('tasks:load');
+    };
+    
+    $scope.$on('task:start', function(event, task) {
+      console.log(task);
+      var gui = require('nw.gui');
+      var win = gui.Window.get();
+      
+      win.minimize();
+      gui.Window.open('app/timer/timer.html');
+    });
+};
 
 function SetupController($scope) {
   'use strict';
@@ -22,4 +38,4 @@ function SetupController($scope) {
         long    : 5,
         top     : 4
     };
-}
+};
