@@ -27,7 +27,10 @@ app.controller('TimerController', function ($scope, Data) {
     };
 
     $scope.breakTimer = function() {
+        $scope.task.timeleft = $scope.timeLeft;
+        Data.sync('currentTask', $scope.task);
         clearInterval($scope.tickerInterval);
+
         $scope.$emit('task:closed');
     };
 

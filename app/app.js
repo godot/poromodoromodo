@@ -29,13 +29,13 @@ function AppCtrl($scope, $location, Data, TasksWindow, TimerWindow) {
 
     $scope.$on('task:start', function(event, task) {
         Data.sync('currentTask', task);
-
         TimerWindow.show();
     });
 
     $scope.$on('task:closed', function(event, task) {
-        Data.fetch('currentTask');
-
         TimerWindow.close();
+
+        $scope.currentTask = Data.fetch('currentTask');
+        console.log($scope.currentTask);
     });
 };
