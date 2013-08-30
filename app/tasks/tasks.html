@@ -1,14 +1,21 @@
-<div class="container">
+<div class="container backlog">
+    <header>
+        <h1>Backlog</h1>
+        <ul class="top-buttons">
+            <li class="minimize">-</li>
+            <li class="close-timer">x</li>
+        </ul>
+    </header>
+
     <form class="navbar-form " role="search">
-        <div class="form-group">
+        <div class="form-group search-form">
             <input type="text" class="form-control" placeholder="Search" ng-model="filter">
         </div>
     </form>
 
     <div class="row">
         <div class="col-lg-8">
-            <h2>task list</h2>
-            <ul class="styled" ui-sortable ng-model="tasks">
+            <ul class="styled task-list" ui-sortable ng-model="tasks">
                 <li ng-repeat="task in tasks | filter:filter">
                     {{task.title}} [{{task.length}}]
                     <span class="btn btn-danger" ng-click="start(task)">GO!</span>
@@ -17,16 +24,13 @@
         </div>
 
         <div class="col-lg-4">
-            <h2>add new task</h2>
-            <form ng-submit="add(task)" class="css-form" novalidate name="form">
+            <form ng-submit="add(task)" class="css-form new-task" novalidate name="form">
                 <input class="form-control" type="text" ng-model="task.title" placeholder="task title..." required/>
                 <br />
                 <input class="radio-inline" type="radio" ng-model="task.length" value="1" checked="checked"/> 1
                 <input class="radio-inline" type="radio" ng-model="task.length" value="2" /> 2
                 <input class="radio-inline" type="radio" ng-model="task.length" value="3" /> 3
                 <input class="radio-inline" type="radio" ng-model="task.length" value="4" /> 4
-
-                <hr />
                 <input class="input" type="submit" value="add new task" ng-disabled="form.$invalid"/>
             </form>
         </div>
