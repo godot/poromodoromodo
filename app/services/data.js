@@ -5,8 +5,12 @@ app.factory('Data', function() {
     prefix: 'pomodoro-',
 
     sync: function(model, collection) {
+      this.save(model, collection);
+      return this.fetch(model);
+    },
+    
+    save: function(model, collection) {
       localStorage.setItem(this.prefix + model, JSON.stringify(collection));
-      return JSON.parse(localStorage.getItem(this.prefix + model));
     },
 
     fetch: function(model) {

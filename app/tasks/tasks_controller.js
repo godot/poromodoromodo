@@ -14,7 +14,7 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
 
     $scope.$on('tasks:save', function() {
         console.log('save');
-        Data.sync('Tasks', $scope.tasks);
+        Data.save('Tasks', $scope.tasks);
     });
 
     $scope.$on('tasks:load', function() {
