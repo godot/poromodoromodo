@@ -32,7 +32,7 @@ function AppCtrl($scope, $location, Data) {
         position: 'top',
         width: 390,
         height: 200,
-        toolbar: true,
+        toolbar: false,
         frame: false,
         min_width: 390,
         min_height: 200,
