@@ -16,7 +16,7 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
         };
 
         $scope.tasks.push(task);
-        $scope.task = null;
+        $scope.task = { length : 1, done: false };
     };
 
     $scope.$on('tasks:save', function() {
