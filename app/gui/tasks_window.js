@@ -5,7 +5,7 @@ app.factory('TasksWindow', function() {
     var win = gui.Window.get();
 
     var showTray = function() {
-        var tray = new gui.Tray({ title: 'Tray', icon: 'img/app-icon.png' });
+        var tray = new gui.Tray({icon: 'img/app-icon-19x19.png'});
         var menu = new gui.Menu();
         var menuItem = new gui.MenuItem( {
             label: 'show tasks',
