@@ -9,7 +9,7 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
     };
 
     $scope.add = function() {
-        $scope.tasks.push( angular.copy($scope.task) );
+        $scope.tasks.push( {title: $scope.task.title, length: $scope.task.length} );
     };
 
     $scope.$on('tasks:save', function() {
