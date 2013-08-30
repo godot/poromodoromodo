@@ -13,32 +13,26 @@
         </div>
     </form>
 
-    <div class="row">
-        <div class="col-lg-8">
-            <ul class="styled task-list" ui-sortable ng-model="tasks">
-                <li ng-repeat="task in tasks track by $index | filter:filter">
+    <ul class="styled task-list" ui-sortable ng-model="tasks">
+        <li ng-repeat="task in tasks track by $index | filter:filter">
 
-                    <span  ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
+            <span  ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
 
-                    <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)" class="form-control"/>
+            <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)" class="form">
 
-                    <span class="pomodoro-task-length">{{task.length}}</span>
+            <span class="pomodoro-task-length">{{task.length}}</span>
 
-                    <span class="btn btn-danger" ng-click="start(task)">GO!</span>
-                </li>
-            </ul>
-        </div>
+            <span class="btn btn-danger" ng-click="start(task)">GO!</span>
+        </li>
+    </ul>
 
-        <div class="col-lg-4">
-            <form ng-submit="add(task)" class="css-form new-task" novalidate name="form">
-                <input class="form-control" type="text" ng-model="task.title" placeholder="task title..." required/>
-                <br />
-                <input class="radio-inline" type="radio" ng-model="task.length" value="1" checked="checked"/> 1
-                <input class="radio-inline" type="radio" ng-model="task.length" value="2" /> 2
-                <input class="radio-inline" type="radio" ng-model="task.length" value="3" /> 3
-                <input class="radio-inline" type="radio" ng-model="task.length" value="4" /> 4
-                <input class="input" type="submit" value="Add new task" ng-disabled="form.$invalid"/>
-            </form>
-        </div>
-    </div>
+    <form ng-submit="add(task)" class="css-form new-task" novalidate name="form">
+        <input class="form-control" type="text" ng-model="task.title" placeholder="task title..." required/>
+        <br />
+        <input class="radio-inline" type="radio" ng-model="task.length" value="1" checked="checked"/> 1
+        <input class="radio-inline" type="radio" ng-model="task.length" value="2" /> 2
+        <input class="radio-inline" type="radio" ng-model="task.length" value="3" /> 3
+        <input class="radio-inline" type="radio" ng-model="task.length" value="4" /> 4
+        <input class="input" type="submit" value="Add new task" ng-disabled="form.$invalid"/>
+    </form>
 </div>
