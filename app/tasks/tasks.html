@@ -22,7 +22,7 @@
 
                     <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)"/>
 
-                    [{{task.length}}]
+                    <span class="pomodoro-task-length">{{task.length}}</span>
 
                     <span class="btn btn-danger" ng-click="start(task)">GO!</span>
                 </li>
@@ -37,7 +37,7 @@
                 <input class="radio-inline" type="radio" ng-model="task.length" value="2" /> 2
                 <input class="radio-inline" type="radio" ng-model="task.length" value="3" /> 3
                 <input class="radio-inline" type="radio" ng-model="task.length" value="4" /> 4
-                <input class="input" type="submit" value="add new task" ng-disabled="form.$invalid"/>
+                <input class="input" type="submit" value="Add new task" ng-disabled="form.$invalid"/>
             </form>
         </div>
     </div>
