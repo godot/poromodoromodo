@@ -1,12 +1,12 @@
 {
-  "name": "angularjs-desktop-example",
-  "version": "0.0.0",
+  "name": "Pomodoromorodoro",
+  "version": "0.0.1",
   "main": "app/index.html",
   "window": {
-    "title": "node-webkit demo",
+    "title": "Pomodoromorodoro",
     "icon": "link.png",
-    "toolbar": true,
-    "frame": true,
+    "toolbar": false,
+    "frame": false,
     "width": 900,
     "height": 800,
     "position": "center",
