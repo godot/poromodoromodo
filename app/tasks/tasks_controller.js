@@ -22,6 +22,10 @@ app.controller('TasksController', function ($scope, Data, TasksManager) {
         $scope.tasks = Data.fetch('Tasks');
     });
 
+    $scope.edit = function(task) {
+        task.edited = !task.edited;
+    };
+
     $scope.start = function(task) {
       $scope.$emit('task:start', task);
     };

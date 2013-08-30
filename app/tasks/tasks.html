@@ -12,8 +12,14 @@
             <h2>task list</h2>
             <ul class="styled" ui-sortable ng-model="tasks">
                 <li ng-repeat="task in tasks | filter:filter">
-                    {{task.title}} [{{task.length}}]
+
+                    <span ng-bind="task.title" ng-hide="task.edited"></span>
+                    <input type="text" ng-model="task.title" ng-show="task.edited" />
+                    [{{task.length}}]
+
                     <span class="btn btn-danger" ng-click="start(task)">GO!</span>
+
+                    <span class="btn btn-danger" ng-click="edit(task)">Edit</span>
                     <input type="checkbox" ng-model="task.ready"/>
                 </li>
             </ul>
