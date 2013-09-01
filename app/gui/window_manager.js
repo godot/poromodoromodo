@@ -42,26 +42,27 @@ if (!global.WindowManager) {
       window: null,
       url: 'file://' + window.location.pathname + '#/timer',
       task: null,
+      windowOptions: {
+        position: 'center',
+        width: 390,
+        height: 200,
+        toolbar: true,
+        frame: false,
+        min_width: 390,
+        min_height: 200,
+        max_width: 390,
+        max_height: 200,
+        x: 1000,
+        y: 100,
+        resize: false,
+        drag: true
+      },
     
       open: function(options, callback) {
         if (this.window) { this.close(); }
         if (options.task) { this.task = options.task; }
       
-        this.window = gui.Window.open(this.url, {
-          position: 'center',
-          width: 390,
-          height: 200,
-          toolbar: true,
-          frame: false,
-          min_width: 390,
-          min_height: 200,
-          max_width: 390,
-          max_height: 200,
-          x: 1000,
-          y: 100,
-          resize: false,
-          drag: true
-        });
+        this.window = gui.Window.open(this.url, this.windowOptions);
         
         if (callback) { callback(); }
       },
