@@ -7,6 +7,10 @@ app.controller('TasksController', function ($scope, Data) {
         length : 1,
         done: false
     };
+    
+    $scope.init = function() {
+      global.WindowManager.MainWindow.assign(gui.Window.get());
+    };
 
     $scope.add = function() {
         var task = {

@@ -5,7 +5,7 @@ app.controller('TimerController', function ($scope, Data) {
         $scope.timeLeft = 60 * 25;
         $scope.timeString = $scope.setTimeString($scope.timeLeft);
         $scope.startTicker();
-        $scope.task = Data.fetch('currentTask');
+        $scope.task = global.WindowManager.TimerWindow.task
     };
 
     $scope.startTicker = function() {
@@ -28,10 +28,9 @@ app.controller('TimerController', function ($scope, Data) {
 
     $scope.breakTimer = function() {
         $scope.task.timeleft = $scope.timeLeft;
-        Data.sync('currentTask', $scope.task);
         clearInterval($scope.tickerInterval);
 
-        $scope.$emit('task:closed');
+        $scope.$emit('task:closed', $scope.task);
     };
 
     $scope.updateTimer = function() {

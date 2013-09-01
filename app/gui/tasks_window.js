@@ -1,8 +1,6 @@
 'use strict';
 
 app.factory('TasksWindow', function() {
-    var gui = require('nw.gui');
-
     var getTasksWindow = function() {
         return gui.Window.get();
     };
@@ -41,10 +39,8 @@ app.factory('TasksWindow', function() {
 
 
 app.factory('TimerWindow', function() {
-    var gui = require('nw.gui');
-
     var getTimerWindow = function() {
-        return gui.Window.get(window.open('file://' + window.location.pathname + '#/timer', {
+        var win = gui.Window.get(window.open('file://' + window.location.pathname + '#/timer', {
             position: 'top',
             width: 390,
             height: 200,
