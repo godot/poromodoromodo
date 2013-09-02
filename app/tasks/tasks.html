@@ -1,4 +1,4 @@
-<div class="container backlog">
+<div class="container backlog" ng-controller='TasksController' ng-init='init()'>
     <header>
         <h1>Backlog</h1>
         {{ currentTask }}
@@ -8,9 +8,7 @@
         </ul>
     </header>
 
-    
-    
-    <section class='tasks' ng-controller='TasksController' ng-init='init()'>
+    <section class='tasks'>
         <h2>
           Tasks
           <form role="search">
@@ -29,7 +27,6 @@
             </li>
         </ul>
     </section>
-
     <form ng-submit="add(task)" class="css-form new-task" novalidate name="form">
         <input class="form-control" type="text" ng-model="task.title" placeholder="task title..." required/>
         <br />

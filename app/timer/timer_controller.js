@@ -5,7 +5,7 @@ app.controller('TimerController', function ($scope, Data) {
         $scope.timeLeft = 60 * 25;
         $scope.timeString = $scope.setTimeString($scope.timeLeft);
         $scope.startTicker();
-        $scope.task = global.WindowManager.TimerWindow.task
+        $scope.task = global.WindowManager.TimerWindow.task;
     };
 
     $scope.startTicker = function() {

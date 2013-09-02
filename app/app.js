@@ -1,8 +1,8 @@
 var app = angular.module('app', ['ui.sortable']);
 
 app.config( ['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/tasks', { templateUrl: 'app/tasks/tasks.html', controller: 'TasksController' });
-    $routeProvider.when('/timer', { templateUrl: 'app/timer/show.html', controller: 'TimerController' });
+    $routeProvider.when('/tasks', { templateUrl: 'app/tasks/tasks.html' });
+    $routeProvider.when('/timer', { templateUrl: 'app/timer/show.html' });
     $routeProvider.when('/setup', { templateUrl: 'app/settings/settings.html', controller: 'SetupController' });
     $routeProvider.otherwise({ redirectTo: '/tasks' });
 }]);

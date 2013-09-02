@@ -1,26 +1,25 @@
 'use strict';
 
 app.controller('TasksController', function ($scope, Data) {
-    $scope.tasks = Data.fetch('Tasks');
-
-    $scope.task = {
-        length : 1,
-        done: false
-    };
-    
-    $scope.init = function() {
-      global.WindowManager.MainWindow.assign(gui.Window.get());
-    };
-
-    $scope.add = function() {
-        var task = {
-            title: $scope.task.title,
-            length: $scope.task.length,
-            id: (new Date().getTime())
-        };
-
-        $scope.tasks.push(task);
+    var resetTask = function() {
         $scope.task = { length : 1, done: false };
+    };
+
+    $scope.init = function() {
+        $scope.tasks = Data.fetch('Tasks');
+        global.WindowManager.MainWindow.assign(gui.Window.get());
+        resetTask();
+    };
+
+    $scope.add = function(task) {
+        var _task = {};
+
+        _task.title  = task.title;
+        _task.length = task.length;
+        _task.id     = (new Date().getTime());
+
+        $scope.tasks.push( angular.copy(_task) );
+        resetTask();
     };
 
     $scope.$on('tasks:save', function() {
@@ -36,9 +35,7 @@ app.controller('TasksController', function ($scope, Data) {
     };
 
     $scope.finish_edit = function(task,$event) {
-        if ($event.keyCode == 13) {
-            task.edited = false;
-        }
+        task.edited = ($event.keyCode == 13);
     };
 
     $scope.start = function(task) {
