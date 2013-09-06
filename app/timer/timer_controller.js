@@ -32,24 +32,31 @@ app.controller('TimerController', function ($scope, Data) {
     };
 
     $scope.breakTimer = function(confirmation) {
-        if (!confirmation) {
-            $scope.labels.break = labels.break.confirm;
-            $scope.pendingConfirmation = true;
-            setTimeout(function() {
-                $scope.labels.break = labels.break.default;
-                $scope.pendingConfirmation = false;
-            }, 2000);
-        }
-        else {
-            $scope.task.timeleft = $scope.timeLeft;
-            clearInterval($scope.tickerInterval);
-
-            $scope.$emit('task:closed', $scope.task);
+        if (confirmation) {
+            $scope.close();
+        } else {
+            $scope.toggleConfirm();
         }
     };
 
     $scope.updateTimer = function() {
         $scope.timeString = $scope.setTimeString($scope.timeLeft);
         $scope.$apply();
+    };
+    
+    $scope.close = function() {
+        $scope.task.timeleft = $scope.timeLeft;
+        clearInterval($scope.tickerInterval);
+
+        $scope.$emit('task:closed', $scope.task);
+    };
+    
+    $scope.toggleConfirm = function() {
+        $scope.labels.break = labels.break.confirm;
+        $scope.pendingConfirmation = true;
+        setTimeout(function() {
+            $scope.labels.break = labels.break.default;
+            $scope.pendingConfirmation = false;
+        }, 2000);
     };
 });
