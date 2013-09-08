@@ -7,7 +7,7 @@
 
   <ul class="pomodoro-buttons clearfix">
     <li><button class="interruptions active">Interruptions</button></li>
-    <li><button class="break" ng-click='breakTimer(pendingConfirmation)'>{{labels.break}}</button></li>
+    <li><button class="break" ng-class="{true: 'red enlarged'}[pendingConfirmation]" ng-click='breakTimer(pendingConfirmation)'>{{labels.break}}</button></li>
   </ul>
 
 
