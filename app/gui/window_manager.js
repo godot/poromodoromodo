@@ -47,7 +47,7 @@ if (!global.WindowManager) {
         width: 390,
         height: 200,
         toolbar: true,
-        frame: false,
+        frame: true,
         min_width: 390,
         min_height: 200,
         max_width: 390,
