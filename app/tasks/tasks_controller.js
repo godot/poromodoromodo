@@ -1,6 +1,7 @@
 'use strict';
 
 app.controller('TasksController', function ($scope, Data) {
+
     var resetTask = function() {
         $scope.task = { length : 1, done: false };
     };
@@ -10,7 +11,6 @@ app.controller('TasksController', function ($scope, Data) {
         global.WindowManager.MainWindow.assign(gui.Window.get());
         resetTask();
     };
-
     $scope.add = function(task) {
         var _task = {};
 
