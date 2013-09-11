@@ -34,7 +34,7 @@ app.controller('TasksController', function ($scope, Data) {
         task.edited = !task.edited;
     };
 
-    $scope.finish_edit = function(task,$event) {
+    $scope.finishEditing = function(task,$event) {
         task.edited = ($event.keyCode == 13);
     };
 

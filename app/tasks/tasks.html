@@ -18,9 +18,9 @@
           </form>
         </h2>
         <ul class="styled task-list" ui-sortable ng-model="tasks">
-            <li ng-repeat="task in tasks track by $index | filter">
-                <span ng-click="edit(task)" ng-bind="task.title" ng-hide="task.edited"></span>
-                <input type="text" ng-model="task.title" ng-show="task.edited" ng-keypress="finish_edit(task,$event)" class="form">
+            <li ng-repeat="task in tasks | filter">
+                <span ng-click="edit(task)" ng-bind="task.title" ng-show="task.edited"></span>
+                <input type="text" ng-model="task.title" ng-hide="task.edited" ng-keypress="finishEditing(task,$event)" class="form">
 
                 <span class="pomodoro-task-length pomodoros-{{task.length}}"></span>
                 <button class="btn btn-success btn-xs" ng-click="start(task)">Start!</button>
